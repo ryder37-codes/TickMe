@@ -1,0 +1,589 @@
+/* Variables inspired by PaperPanda's clean aesthetic */
+:root {
+  --bg-primary: #fefefe;
+  --bg-secondary: #f8f9fa;
+  --bg-paper: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --success: #059669;
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --font-serif: 'Crimson Text', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Responsive variables */
+  --container-padding: clamp(16px, 4vw, 32px);
+  --header-padding: clamp(24px, 6vw, 40px);
+  --card-padding: clamp(20px, 5vw, 32px);
+  --input-padding: clamp(12px, 3vw, 16px);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Header - Fully responsive */
+.app-header {
+  text-align: center;
+  margin-bottom: clamp(24px, 6vw, 40px);
+  padding: var(--header-padding) 0;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 4vw, 24px);
+}
+
+.title-group {
+  text-align: center;
+}
+
+.app-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.app-subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+  padding: 0 16px;
+}
+
+.date-display {
+  background: var(--bg-paper);
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Main app - Responsive container */
+.todo-app {
+  background: var(--bg-paper);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Task input - Mobile-first responsive */
+.task-input-wrapper {
+  padding: var(--card-padding) var(--card-padding) clamp(20px, 4vw, 24px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.task-input {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  width: 100%;
+  min-height: 52px;
+}
+
+.task-input:focus-within {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.task-input input {
+  flex: 1;
+  padding: var(--input-padding) clamp(16px, 4vw, 20px);
+  border: none;
+  background: transparent;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+  min-width: 0; /* Prevent overflow */
+}
+
+.task-input input::placeholder {
+  color: var(--text-muted);
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+}
+
+.add-button {
+  margin: 4px;
+  width: clamp(40px, 10vw, 44px);
+  height: clamp(40px, 10vw, 44px);
+  border: none;
+  background: var(--accent-primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.add-button svg {
+  width: clamp(14px, 3vw, 16px);
+  height: clamp(14px, 3vw, 16px);
+}
+
+.add-button:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.add-button:active {
+  transform: translateY(0);
+}
+
+.add-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Task stats - Responsive text and spacing */
+.task-stats {
+  padding: clamp(12px, 3vw, 16px) var(--card-padding);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 2vw, 8px);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.stat-separator {
+  color: var(--text-muted);
+}
+
+/* Task list - Responsive container */
+.task-list-container {
+  min-height: clamp(250px, 50vh, 400px);
+  position: relative;
+}
+
+.task-list {
+  padding: clamp(12px, 3vw, 16px) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: clamp(240px, 80%, 320px);
+  padding: 0 20px;
+}
+
+.empty-state.hidden {
+  display: none;
+}
+
+.empty-icon {
+  font-size: clamp(2rem, 8vw, 3rem);
+  margin-bottom: clamp(12px, 3vw, 16px);
+}
+
+.empty-state h3 {
+  font-size: clamp(1.1rem, 3vw, 1.25rem);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  line-height: 1.5;
+}
+
+/* Task items - Fully responsive */
+.task {
+  display: flex;
+  align-items: flex-start;
+  padding: clamp(12px, 3vw, 16px) var(--card-padding);
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+  position: relative;
+  gap: clamp(12px, 3vw, 16px);
+  min-height: 60px;
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+.task:hover {
+  background: var(--bg-secondary);
+}
+
+.task.completed {
+  opacity: 0.7;
+}
+
+.task input[type="checkbox"] {
+  width: clamp(18px, 4vw, 20px);
+  height: clamp(18px, 4vw, 20px);
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--success);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.task-content {
+  flex: 1;
+  min-width: 0; /* Prevent overflow */
+  overflow: hidden;
+}
+
+.task-text {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: var(--text-primary);
+  margin: 0;
+  word-wrap: break-word;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.task.completed .task-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.task-meta {
+  font-size: clamp(0.75rem, 2vw, 0.8rem);
+  color: var(--text-muted);
+  margin: clamp(2px, 1vw, 4px) 0 0 0;
+}
+
+.task-actions {
+  opacity: 0;
+  transition: all 0.2s ease;
+  display: flex;
+  gap: clamp(6px, 2vw, 8px);
+  flex-shrink: 0;
+}
+
+.task:hover .task-actions {
+  opacity: 1;
+}
+
+.delete-button {
+  width: clamp(28px, 6vw, 32px);
+  height: clamp(28px, 6vw, 32px);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: clamp(16px, 4vw, 18px);
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.delete-button:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Specific device breakpoints */
+
+/* Large tablets and small laptops */
+@media (max-width: 1024px) {
+  .app-container {
+    max-width: 700px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .app-container {
+    max-width: 100%;
+    padding: 16px;
+  }
+  
+  .todo-app {
+    border-radius: var(--radius-md);
+  }
+  
+  .task-input input::placeholder {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 12px;
+    --card-padding: 16px;
+  }
+  
+  .app-header {
+    padding: 20px 0;
+    margin-bottom: 24px;
+  }
+  
+  .header-content {
+    gap: 16px;
+  }
+  
+  .app-title {
+    font-size: 1.875rem;
+    line-height: 1.1;
+  }
+  
+  .app-subtitle {
+    font-size: 0.95rem;
+    padding: 0 12px;
+  }
+  
+  .date-display {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .task-input-wrapper {
+    padding: 20px 16px 16px;
+  }
+  
+  .task-stats {
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .task {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  
+  .task-text {
+    font-size: 0.9rem;
+  }
+  
+  .task-meta {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 8px;
+  }
+  
+  .app-title {
+    font-size: 1.75rem;
+  }
+  
+  .app-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .task-input-wrapper {
+    padding: 16px 12px;
+  }
+  
+  .task-stats {
+    padding: 10px 12px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .stat-separator {
+    display: none;
+  }
+  
+  .task {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  
+  .task-input input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .task-input input::placeholder {
+    font-size: 0.85rem;
+  }
+  
+  .add-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .empty-state {
+    max-width: 260px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .app-container {
+    padding: 4px;
+  }
+  
+  .task-input-wrapper {
+    padding: 12px 8px;
+  }
+  
+  .task {
+    padding: 8px 8px;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+  }
+  
+  .task-input input::placeholder {
+    font-size: 0.8rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .task-actions {
+    opacity: 1; /* Always show on touch devices */
+  }
+  
+  .add-button {
+    min-height: 44px; /* Minimum touch target */
+    min-width: 44px;
+  }
+  
+  .delete-button {
+    min-height: 44px; /* Minimum touch target */
+    min-width: 44px;
+  }
+  
+  .task input[type="checkbox"] {
+    min-width: 24px; /* Better touch target */
+    min-height: 24px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .todo-app {
+    border-width: 0.5px;
+  }
+  
+  .task {
+    border-bottom-width: 0.5px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (orientation: landscape) and (max-height: 500px) {
+  .app-header {
+    padding: 16px 0;
+    margin-bottom: 16px;
+  }
+  
+  .task-list-container {
+    min-height: 200px;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+  }
+  
+  .app-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animation for new tasks */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task.new {
+  animation: slideInDown 0.3s ease-out;
+}
+
+/* Focus styles */
+.task:focus-within {
+  background: var(--bg-secondary);
+  outline: 2px solid var(--accent-primary);
+  outline-offset: -2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

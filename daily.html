@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TickMe - Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="daily.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="title-group">
+          <h1 class="app-title">📋 Daily Tasks</h1>
+          <p class="app-subtitle">Focus on what matters today</p>
+        </div>
+        <div class="date-display" id="dateDisplay"></div>
+      </div>
+    </header>
+
+    <main class="todo-app">
+      <div class="task-input-wrapper">
+        <div class="task-input">
+          <input type="text" id="taskInput" placeholder="What would you like to accomplish today?" maxlength="100">
+          <button class="add-button" id="addButton" aria-label="Add task">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="task-stats" id="taskStats">
+        <span class="stat-item"><span id="totalTasks">0</span> total</span>
+        <span class="stat-separator">·</span>
+        <span class="stat-item"><span id="completedTasks">0</span> completed</span>
+      </div>
+
+      <div class="task-list-container">
+        <div id="taskList" class="task-list"></div>
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">🌱</div>
+          <h3>Ready to be productive?</h3>
+          <p>Add your first task to get started on a great day.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="daily.js"></script>
+</body>
+</html>

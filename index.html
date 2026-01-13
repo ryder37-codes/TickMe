@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TickMe - Your Personal Task Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <span class="material-symbols-outlined">task_alt</span>
+        <span>TickMe</span>
+      </div>
+      <div class="loading-spinner"></div>
+      <p>Setting up your workspace...</p>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <span class="material-symbols-outlined">task_alt</span>
+      <span>TickMe</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="daily.html" class="nav-link" data-page="daily">Daily</a></li>
+      <li><a href="weekly.html" class="nav-link" data-page="weekly">Weekly</a></li>
+      <li><a href="monthly.html" class="nav-link" data-page="monthly">Monthly</a></li>
+      <li><a href="#" class="profile-btn" id="profileBtn">Your Profile →</a></li>
+    </ul>
+    
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        TickMe off your day, <br>
+        <span class="highlight">one task at a time!</span>
+      </h1>
+      <p class="hero-subtitle">
+        Your elegant, personal task management companion designed for focus and productivity.
+      </p>
+      
+      <div class="hero-actions">
+        <button class="cta-btn primary" id="ctaBtn">
+          <span class="material-symbols-outlined">rocket_launch</span>
+          Start Organizing Your Tasks
+        </button>
+        <button class="cta-btn secondary" id="learnMoreBtn">
+          <span class="material-symbols-outlined">info</span>
+          Learn More
+        </button>
+      </div>
+      
+      <div class="hero-stats" id="heroStats">
+        <div class="stat-item">
+          <span class="stat-number" id="totalTasks">0</span>
+          <span class="stat-label">Total Tasks</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="completedTasks">0</span>
+          <span class="stat-label">Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="currentStreak">0</span>
+          <span class="stat-label">Day Streak</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="featuresSection">
+    <div class="container">
+      <h2 class="section-title">Choose your planning style</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-feature="daily">
+          <div class="feature-icon">
+            <span class="material-symbols-outlined">today</span>
+          </div>
+          <h3>Daily Focus</h3>
+          <p>Stay focused on today's priorities with our clean, distraction-free daily task manager. Perfect for maintaining daily momentum.</p>
+          <a href="daily.html" class="feature-link">Start Daily Planning →</a>
+        </div>
+        
+        <div class="feature-card" data-feature="weekly">
+          <div class="feature-icon">
+            <span class="material-symbols-outlined">view_week</span>
+          </div>
+          <h3>Weekly Planning</h3>
+          <p>Plan your week ahead with our intuitive weekly calendar. Organize tasks across days and see your week at a glance.</p>
+          <a href="weekly.html" class="feature-link">Try Weekly Planner →</a>
+        </div>
+        
+        <div class="feature-card" data-feature="monthly">
+          <div class="feature-icon">
+            <span class="material-symbols-outlined">calendar_month</span>
+          </div>
+          <h3>Monthly Overview</h3>
+          <p>See the bigger picture with comprehensive monthly planning. Track progress and plan long-term goals effectively.</p>
+          <a href="monthly.html" class="feature-link">Open Monthly View →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="container">
+      <h2 class="section-title">Why choose TickMe?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span class="material-symbols-outlined">psychology</span>
+          <div class="benefit-content">
+            <h3>Mental Clarity</h3>
+            <p>Clean, distraction-free interface designed to help you focus on what matters most without overwhelming complexity.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-card">
+          <span class="material-symbols-outlined">devices</span>
+          <div class="benefit-content">
+            <h3>Works Everywhere</h3>
+            <p>Responsive design that adapts perfectly to any device - desktop, tablet, or mobile. Your tasks, anywhere you go.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-card">
+          <span class="material-symbols-outlined">security</span>
+          <div class="benefit-content">
+            <h3>Privacy First</h3>
+            <p>Your data stays completely local on your device. No accounts, no tracking, no data collection. Just pure productivity.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-card">
+          <span class="material-symbols-outlined">palette</span>
+          <div class="benefit-content">
+            <h3>Elegant Design</h3>
+            <p>Beautiful, paper-inspired interface with thoughtful typography and spacing that makes task management a pleasure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Started Section -->
+  <section class="getting-started">
+    <div class="container">
+      <h2 class="section-title">Ready to get organized?</h2>
+      <div class="getting-started-content">
+        <p>Choose the planning style that fits your workflow and start organizing your tasks today. No signup required, no data collection - just pure productivity.</p>
+        <div class="quick-links">
+          <a href="daily.html" class="quick-link">
+            <span class="material-symbols-outlined">today</span>
+            <span>Daily Tasks</span>
+          </a>
+          <a href="weekly.html" class="quick-link">
+            <span class="material-symbols-outlined">view_week</span>
+            <span>Weekly Plan</span>
+          </a>
+          <a href="monthly.html" class="quick-link">
+            <span class="material-symbols-outlined">calendar_month</span>
+            <span>Monthly View</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="material-symbols-outlined">task_alt</span>
+          <span>TickMe</span>
+        </div>
+        <p class="footer-text">
+          Built with care for people who value simplicity, privacy, and beautiful design in their productivity tools.
+        </p>
+        <div class="footer-links">
+          <a href="daily.html">Daily</a>
+          <a href="weekly.html">Weekly</a>
+          <a href="monthly.html">Monthly</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Profile Modal -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Your TickMe Progress</h3>
+        <button class="modal-close" id="profileModalClose" aria-label="Close modal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="profile-stats">
+          <div class="profile-stat">
+            <span class="material-symbols-outlined">assignment</span>
+            <div>
+              <h4 id="profileTotalTasks">0</h4>
+              <p>Total Tasks Created</p>
+            </div>
+          </div>
+          
+          <div class="profile-stat">
+            <span class="material-symbols-outlined">assignment_turned_in</span>
+            <div>
+              <h4 id="profileCompletedTasks">0</h4>
+              <p>Tasks Completed</p>
+            </div>
+          </div>
+          
+          <div class="profile-stat">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            <div>
+              <h4 id="profileCurrentStreak">0</h4>
+              <p>Current Daily Streak</p>
+            </div>
+          </div>
+          
+          <div class="profile-stat">
+            <span class="material-symbols-outlined">trending_up</span>
+            <div>
+              <h4 id="profileProductivity">0%</h4>
+              <p>Completion Rate</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-actions">
+          <button class="btn-secondary" id="clearDataBtn">Clear All Data</button>
+          <button class="btn-primary" id="exportDataBtn">Export Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
