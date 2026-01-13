@@ -3,6 +3,9 @@
 
 A beautiful, responsive task management application with daily, weekly, and monthly planning capabilities.
 
+## Live Demo
+- https://ryder37-codes.github.io/TickMe/
+
 ## Features
 - 📅 Daily task planner with focus mode
 - 📊 Weekly overview with day-by-day organization  
@@ -18,3 +21,4 @@ A beautiful, responsive task management application with daily, weekly, and mont
 - Mobile-first responsive design
 ---
 Built with ❤️ for productivity enthusiasts - RYDER37 ;)
+
